@@ -1,0 +1,20 @@
+//create view
+CREATE VIEW view_name as
+SELECT *
+FROM table_name
+
+//read view
+SELECT *
+FROM view_name
+
+//modify view - can not modify another columns
+CREATE OR REPLACE VIEW view_name as
+SELECT *
+FROM table_name
+
+//при инсерте в вью будут браться чеки
+WITH LOCAL CHECK OPTION
+
+
+//при инсерте в дочернюю, от вью, вью будут браться чеки
+WITH CASCADE CHECK OPTION

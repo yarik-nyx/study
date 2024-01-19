@@ -1,0 +1,12 @@
+//case
+SELECT column_name, column_name,
+	CASE WHEN condition THEN smth
+	     WHEN condition2 THEN smth2
+	     WHEN condition3 and condition 4 THEN smth3
+	     ELSE smth4
+	END AS your_column_name
+FROM table_name
+
+//coalesce - исправление null налету. coalesce(arg1, arg2, ..) - вернет то, что не равно null
+
+//NULLIF - сравнивает элементы, если равны возвращает null

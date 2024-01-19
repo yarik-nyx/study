@@ -1,0 +1,82 @@
+CREATE TABLE table_name
+
+ALTER TABLE table_name
+	ADD COLUMN column_name data_type PRIMARY KEY
+	RENAME TO new_table_name
+	RENAME old_column_name TO new_column_name
+	ALTER COLUMN column_name SET DATA TYPE data_type
+
+DROP TABLE table_name
+//удаляет всt записи в таблице
+TRUNCATE TABLE table_name
+
+//ограничения
+//foreign key
+ALTER TABLE table_name
+	ADD CONSTRAINT foreighkey_name FOREIGH KEY(FKcolumn_name) REFERENCES PKtable_name(PKcolumn_name)
+
+//check
+ALTER TABLE table_name
+	ADD COLUMN price decimal CONSTRAINT chk_book_price CHECK(price >= 0)
+
+//SEQUENCES - serial
+CREATE SEQUENCE seq
+
+//+1
+SELECT nextval(seq)
+
+//current value of sequence
+SELECT currval(seq)
+
+//
+SELECT lastval()
+
+//set value of sequence
+SELECT setval('seq', 16)
+
+//first value after nextval is 1, after nextval again is 17(+16)
+CREATE SEQUENCE seq2 INCREMENT 16
+
+//custom seq
+CREATE SEQUENCE seq3 
+INCREMENT 16
+MINVALUE 0
+MAXVALUE 128
+START WITH 0
+
+//RENAME
+ALTER SEQUENCE seq3 RENAME TO seq4
+//RESTART
+ALTER SEQUENCE seq4 RESTART WITH 4
+//DELETE SEQ
+DROP SEQUENCE seq4
+
+
+
+//GENERETED ALWAYS AS IDENTITY(options)
+
+//data
+//create new table from old
+SELECT *
+INTO new_table_name
+FROM old_table_name
+
+//insert values in exist table
+INSER INTO new_table_name
+SELECT *
+FROM old_table_name
+
+//UPDATE
+UPDATE table_name
+SET column_name = 'value', column_name = 'value'
+WHERE column_id = id_value
+
+//DELETE
+DELETE FROM table_name
+WHERE column_id = id_value
+
+
+//RETURNING - возврщает обновленные данные после CUD
+INSERT INTO table_name(column_name, column_name,)
+VALUE('VALUE', 'VALUE')
+RETURNING column_name or *

@@ -1,0 +1,33 @@
+//UNION
+//все страны из кастомерс и саплаерс, исключая повторения
+SELECT county
+FROM customers
+UNION
+SELECT county
+FROM suppliers
+//////////////////////////////////////////////
+//все страны из кастомерс и саплаерс, не исключая повторения
+SELECT county
+FROM customers
+UNION ALL
+SELECT county
+FROM suppliers
+//////////////////////////////////////////////
+
+//INTERSECT
+//все страны пересекающиеся в кастомерсах и саплаерах
+SELECT county
+FROM customers
+INTERSECT
+SELECT county
+FROM suppliers
+//////////////////////////////////////////////
+
+//EXCEPT
+//все страны касмотеров, в которых нет стран саплаеров
+SELECT county
+FROM customers
+EXCEPT
+SELECT county
+FROM suppliers
+//////////////////////////////////////////////
